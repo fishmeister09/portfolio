@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.c177dd03.chunk.css",
+    "main.js": "/portfolio/static/js/main.b2abe0ca.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.b2abe0ca.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.37797af8.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.37797af8.js.map",
+    "static/js/2.92160f25.chunk.js": "/portfolio/static/js/2.92160f25.chunk.js",
+    "static/js/2.92160f25.chunk.js.map": "/portfolio/static/js/2.92160f25.chunk.js.map",
+    "static/js/3.18674eed.chunk.js": "/portfolio/static/js/3.18674eed.chunk.js",
+    "static/js/3.18674eed.chunk.js.map": "/portfolio/static/js/3.18674eed.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "static/css/main.c177dd03.chunk.css.map": "/portfolio/static/css/main.c177dd03.chunk.css.map",
+    "static/js/2.92160f25.chunk.js.LICENSE.txt": "/portfolio/static/js/2.92160f25.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/portfolio/static/media/fira-sans.regular.5107932f.ttf",
+    "static/media/backgen.b6c62bc0.png": "/portfolio/static/media/backgen.b6c62bc0.png",
+    "static/media/donate.6a937f31.jpg": "/portfolio/static/media/donate.6a937f31.jpg",
+    "static/media/mongo.03527bba.png": "/portfolio/static/media/mongo.03527bba.png",
+    "static/media/register.ab26477f.png": "/portfolio/static/media/register.ab26477f.png",
+    "static/media/travel.7031fc4f.jpg": "/portfolio/static/media/travel.7031fc4f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.37797af8.js",
+    "static/js/2.92160f25.chunk.js",
+    "static/css/main.c177dd03.chunk.css",
+    "static/js/main.b2abe0ca.chunk.js"
+  ]
+}
