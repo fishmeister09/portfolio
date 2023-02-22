@@ -219,7 +219,6 @@ function App(props) {
               </p>
             </motion.div>
 
-            <div></div>
             <div className="Button1">
               <div
                 style={{ minWidth: '130px' }}
