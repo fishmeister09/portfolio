@@ -163,7 +163,7 @@ function App(props) {
         <div className="header-row-bottom">
           <div className="header-row-component1 footerComp1">
             <div onMouseEnter={textEnter} onMouseLeave={textLeave}>
-              <a href="https://twitter.com/fishMeisterFTW">TWITTER</a>
+              <a href="https://twitter.com/arjun_sethi33">TWITTER</a>
             </div>
             <div onMouseEnter={textEnter} onMouseLeave={textLeave}>
               <a href="https://www.linkedin.com/in/arjun-sethi-a75a48118">
@@ -181,7 +181,7 @@ function App(props) {
           <div className="header-row-component2 footerComp2">© 2022</div>
         </div>
       </div>
-      {/* ABOUT */}{' '}
+      {/* ABOUT */}
       <div id="about" className="about-container">
         <div className="about">
           <motion.div className="header" {...props}>
