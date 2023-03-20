@@ -47,14 +47,15 @@ function App(props) {
       y: mousePosition.y - 50,
     },
   };
-  const [show, setShow] = useState({
+  const defaultImageShow = {
     show1: false,
     show2: false,
     show3: false,
     show4: false,
     show5: false,
     show6: false,
-  });
+  };
+  const [show, setShow] = useState(defaultImageShow);
 
   const textEnter = () => setCursorVariant('text');
   const textLeave = () => setCursorVariant('default');
@@ -266,7 +267,7 @@ function App(props) {
           <motion.a
             href="https://github.com/fishmeister09/Bundle"
             onHoverStart={() => setShow({ ...show, show1: true })}
-            onHoverEnd={() => setShow({ ...show, show1: false })}
+            onHoverEnd={() => setShow(defaultImageShow)}
             className="project-title"
             whileHover={{ paddingRight: '2rem' }}
           >
@@ -286,7 +287,7 @@ function App(props) {
           <motion.a
             href="https://github.com/fishmeister09/cashiflux"
             onHoverStart={() => setShow({ ...show, show2: true })}
-            onHoverEnd={() => setShow({ ...show, show2: false })}
+            onHoverEnd={() => setShow(defaultImageShow)}
             className="project-title"
             whileHover={{ paddingRight: '2rem' }}
           >
@@ -306,7 +307,7 @@ function App(props) {
           <motion.a
             href="https://github.com/fishmeister09/Travel-Homepage"
             onHoverStart={() => setShow({ ...show, show3: true })}
-            onHoverEnd={() => setShow({ ...show, show3: false })}
+            onHoverEnd={() => setShow(defaultImageShow)}
             className="project-title"
             whileHover={{ paddingRight: '2rem' }}
           >
@@ -326,7 +327,7 @@ function App(props) {
           <motion.a
             href="https://github.com/fishmeister09/Transcribe"
             onHoverStart={() => setShow({ ...show, show4: true })}
-            onHoverEnd={() => setShow({ ...show, show4: false })}
+            onHoverEnd={() => setShow(defaultImageShow)}
             className="project-title"
             whileHover={{ paddingRight: '2rem' }}
           >
@@ -347,7 +348,7 @@ function App(props) {
           <motion.a
             href="https://chat-app-q9tg.vercel.app/"
             onHoverStart={() => setShow({ ...show, show6: true })}
-            onHoverEnd={() => setShow({ ...show, show6: false })}
+            onHoverEnd={() => setShow(defaultImageShow)}
             className="project-title"
             whileHover={{ paddingRight: '2rem' }}
           >
@@ -367,7 +368,7 @@ function App(props) {
           <motion.a
             href="https://github.com/fishmeister09/Chanel"
             onHoverStart={() => setShow({ ...show, show5: true })}
-            onHoverEnd={() => setShow({ ...show, show5: false })}
+            onHoverEnd={() => setShow(defaultImageShow)}
             className="project-title"
             whileHover={{ paddingRight: '2rem' }}
           >
