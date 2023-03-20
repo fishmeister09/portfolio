@@ -118,7 +118,6 @@ function App(props) {
             </a>
           </div>
         </div>
-        <div className="titleupblock" />
         <div className="titleContainer">
           <div className="titlePosition">
             <motion.div

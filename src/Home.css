@@ -25,7 +25,7 @@
   background-color: #1d1d1d;
 }
 .header-row-top {
-  height: 10vh;
+  height: 10dvh;
   display: flex;
   /* padding: 0rem 4vw 0em 4vw; */
   justify-content: space-between;
@@ -33,7 +33,7 @@
   /* background-color: red; */
 }
 .header-row-bottom {
-  height: 10vh;
+  height: 10dvh;
   /* background-color: red; */
   display: flex;
   /* padding: 0rem 4vw 0rem 4vw; */
@@ -57,7 +57,6 @@
 .footerComp1 {
   display: flex;
   width: 16vw;
-  /* background-color: pink; */
   font-size: 1rem;
   justify-content: space-between;
 }
@@ -71,23 +70,20 @@
   margin-left: 5%;
 }
 .titleContainer {
-  display: block;
+  height: 80dvh;
+  display: flex;
   flex-direction: column;
-  height: 60vh;
-  /* background-color: blue; */
+  align-items: flex-end;
+
+  justify-content: center;
 }
 .titlePosition {
-  position: absolute;
-  right: 15%;
+  margin-right: 15%;
 }
 .TitleText {
   font-family: 'Almarena-Light';
   color: #f4f4f4;
   font-size: 36px;
-}
-.titleupblock {
-  height: 20vh;
-  /* background-color: pink; */
 }
 a {
   text-decoration: none;
@@ -109,25 +105,23 @@ a:active {
 
 @media screen and (max-width: 760px) {
   .header-row-top {
-    padding: 0rem 3% 0rem 3%;
-    height: 10vh;
+    padding: 0 3% 0 3%;
   }
-
   .header-row-component1 {
     font-size: 20px;
   }
   .titlePosition {
-    left: 3%;
+    margin-right: 0;
+    margin-left: 3%;
   }
   .titleContainer {
-    height: 37vh;
+    align-items: flex-start;
+    justify-content: flex-end;
   }
   .TitleText {
-    font-size: 30px;
+    font-size: 3.6vh;
   }
-  .titleupblock {
-    height: 43vh;
-  }
+
   .header-row-component2 {
     display: none;
   }
@@ -138,17 +132,11 @@ a:active {
     margin-left: 0;
   }
   .header-row-bottom {
-    padding: 0rem 3% 0rem 3%;
-    height: 10vh;
+    padding: 0 3% 0 3%;
   }
   .footerComp2 {
     display: inline-block;
     font-size: 0.73rem;
-  }
-}
-@media screen and (max-height: 650px) {
-  .titlePosition .Button {
-    display: none;
   }
 }
 
@@ -195,6 +183,12 @@ a:active {
   margin-top: -13px;
 }
 
+@media screen and (max-height: 670px) {
+  .titlePosition .Button {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 2000px) {
   .footerComp1 {
     font-size: 1vw;
@@ -205,12 +199,8 @@ a:active {
   .footerComp2 {
     font-size: 1vw;
   }
-
-  .titleupblock {
-    height: 20vh;
-  }
   .TitleText {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
   .header-row-component2 {
     font-size: 1vw;
