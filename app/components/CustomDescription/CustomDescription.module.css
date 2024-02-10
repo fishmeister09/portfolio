@@ -1,0 +1,12 @@
+.designationContainer {
+  display: flex;
+  cursor: pointer;
+  text-align: left;
+  margin-top: -0.5%;
+}
+
+.designation {
+  display: flex;
+  text-transform: lowercase;
+  align-items: center;
+}

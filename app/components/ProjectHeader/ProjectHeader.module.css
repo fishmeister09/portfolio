@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: 'Caprasimo', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2em;
+  /* text-transform: initial; */
+}
+@media screen and (max-width: 810px) {
+  .title {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "main links": [
+    {
+      "title": "location",
+      "link-text": "New Delhi, India",
+      "ref": "https://www.google.com/maps/place/New+Delhi,+Delhi/"
+    },
+    {
+      "title": "website",
+      "link-text": "fishmeister.me",
+      "ref": "https://fishmeister.me"
+    },
+    {
+      "title": "mail",
+      "link-text": "arjunsethi33@gmail.com",
+      "ref": "mailto:arjunsethi33@gmail.com"
+    },
+    {
+      "title": "github",
+      "link-text": "@fishmeister09",
+      "ref": "https://github.com/fishmeister09"
+    }
+  ],
+  "social links": [
+    {
+      "title": "twitter",
+      "link-text": "@arjun_sethi33",
+      "ref": "https://twitter.com/arjun_sethi33"
+    },
+    {
+      "title": "linkedin",
+      "link-text": "@arjunsethi33",
+      "ref": "https://www.linkedin.com/in/arjunsethi33/"
+    }
+  ]
+}

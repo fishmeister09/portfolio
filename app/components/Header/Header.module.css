@@ -1,0 +1,16 @@
+.name {
+  font-family: 'Caprasimo', sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media screen and (max-width: 810px) {
+  .name {
+    font-size: 40px;
+  }
+}

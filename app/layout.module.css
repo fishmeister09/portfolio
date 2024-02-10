@@ -1,0 +1,39 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  color: var(--textColor);
+}
+.receipt {
+  width: 560px;
+  min-height: 200px;
+  background-color: rgb(255, 255, 255);
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.pageContainer {
+  width: 100%;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.removePageContainerMargin {
+  margin: 0;
+}
+
+@media screen and (max-width: 810px) {
+  .receipt {
+    width: 360px;
+  }
+  .subContainer {
+    padding: 2.5rem 1rem;
+  }
+}

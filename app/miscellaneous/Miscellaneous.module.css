@@ -1,0 +1,11 @@
+.author {
+  font-family: 'Caprasimo', sans-serif;
+  font-size: 16px;
+  text-align: right;
+}
+
+@media screen and (max-width: 810px) {
+  .author {
+    font-size: 14px;
+  }
+}

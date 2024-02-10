@@ -1,0 +1,28 @@
+.divider {
+  margin: 0.1rem 0;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  line-height: 10%;
+  letter-spacing: 0.2em;
+}
+
+.text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  letter-spacing: -0.005em;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 810px) {
+  .text {
+    font-size: 24px;
+  }
+  .divider {
+    line-height: 40%;
+  }
+}

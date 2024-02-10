@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #242728;
+  color: #ffffff;
+  position: fixed;
+  bottom: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  padding: 0.2% 1%;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+@media screen and (max-width: 810px) {
+  .container {
+    padding: 0.2% 2%;
+  }
+}

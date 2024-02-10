@@ -1,0 +1,44 @@
+{
+  "bundle": {
+    "title": "Bundle",
+    "miniDescription": "Unleash your creativity and share engaging stories.",
+    "demolink": "https://photos.app.goo.gl/wcRoGmgfJPfD6Fev6",
+    "subtitle": "Seamlessly Craft, Share, Engage",
+    "description": "Bundle is the blogging app you've been waiting for - a Medium-inspired platform designed to offer a user-friendly experience with enhanced gestures for efficient content management. The app is carefully designed to offer a modern and aesthetic interface that enhances the overall user experience.",
+    "list": [
+      {
+        "title": "Social Media Integration",
+        "description": "offers user profiles that allow bloggers to share their identity and connect with readers. Users can follow their favorite writers to stay updated on new content. The app organizes content into categories, enabling readers to explore articles based on their interests."
+      },
+      {
+        "title": "Intuitive Gestures",
+        "description": "Deleting posts and bookmarks is as simple as swiping. This gesture-driven feature ensures a clutter-free environment, where users can manage their content effortlessly."
+      },
+      {
+        "title": "Rich Text Editor",
+        "description": "The rich text editor offers a wide range of formatting options. Writers can create visually engaging articles by customizing styles."
+      }
+    ]
+  },
+  "transcribe": {
+    "title": "Transcribe",
+    "demolink": "https://photos.app.goo.gl/awaiKULaUEPF97ez5",
+    "miniDescription": "Your gateway to an enriched language experience that empowers you to communicate with accuracy and flair.",
+    "subtitle": "Unlock Language with Precision",
+    "description": "In a world that thrives on global connections and cross-cultural interactions, the power of language cannot be underestimated. Communication is the bridge that brings people together, and words are the building blocks of that connection. This is where \"Transcribe\" steps in, serving as your indispensable companion on the journey of language exploration and mastery.",
+    "list": [
+      {
+        "title": "Extensive Word Repository",
+        "description": "Access a vast collection of words and their meanings from various languages, ensuring you find the right words for every context."
+      },
+      {
+        "title": "Pronunciation Assistance",
+        "description": "Hear how words are pronounced correctly, helping you develop accurate language skills and boosting your confidence in communication."
+      },
+      {
+        "title": "Example Usage",
+        "description": "Explore practical examples of words in sentences, gaining insight into how they are used in different contexts."
+      }
+    ]
+  }
+}

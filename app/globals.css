@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=JetBrains+Mono:wght@400;500;700&display=swap");
+:root {
+  font-family: "JetBrains Mono", monospace;
+  --background-light: #e5e5e5;
+  --background-dark: #242728;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --textColor: #242728;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-light);
+  }
+}
+
+::selection {
+  background: #e5e5e5;
+}
