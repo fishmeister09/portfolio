@@ -5,6 +5,12 @@ import Description from "../components/Description";
 import Padding from "../components/Padding";
 import SectionHeader from "../components/SectionHeader";
 import quotesData from "./quotes.json";
+
+export const metadata = {
+  title: "Miscellaneous",
+  description: "Just a bunch of random stuff",
+};
+
 const Miscellaneous = () => {
   const quotes = Object.values(quotesData);
   return (

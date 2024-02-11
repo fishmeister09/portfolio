@@ -4,6 +4,11 @@ import SectionHeader from "../components/SectionHeader";
 import Container from "../components/Container";
 import links from "./links.json";
 
+export const metadata = {
+  title: "Links",
+  description: "Links to my socials and other stuff",
+};
+
 const Links = () => {
   const mainLinks = links["main links"];
   const socialLinks = links["social links"];

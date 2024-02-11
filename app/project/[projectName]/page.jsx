@@ -8,12 +8,20 @@ import IconContainer from "../../components/IconContainer";
 import projectsData from "../projects-data.json";
 import BackButton from "../../components/BackButton";
 
+export const generateStaticParams = () => {
+  return Object.keys(projectsData);
+};
+
+export const generateMetadata = ({ params }) => {
+  const name = params.projectName;
+  return {
+    title: projectsData[name].title,
+    description: projectsData[name].subtitle,
+  };
+};
+
 const Project = ({ params }) => {
   const name = params.projectName;
-
-  // useEffect(() => {
-  //   document.title = `${projectsData[name].title}`;
-  // }, [name]);
 
   return (
     <>

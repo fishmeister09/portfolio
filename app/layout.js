@@ -3,7 +3,10 @@ import "./globals.css";
 import AppWrapper from "./components/AppWrapper";
 
 export const metadata = {
-  title: "Portfolio | Arjun Sethi",
+  title: {
+    default: "Portfolio | Arjun Sethi",
+    template: "%s | Arjun Sethi",
+  },
   description:
     "Software Engineer with a passion for transforming ideas into functional software. My expertise spans both front-end and back-end development, and my projects demonstrate my commitment to creating robust and efficient systems. This portfolio is a testament to my continuous learning, adaptability, and ability to work effectively in diverse teams. Explore how I can help transform your software ideas into reality.",
 };

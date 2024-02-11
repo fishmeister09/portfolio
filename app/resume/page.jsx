@@ -7,6 +7,11 @@ import SectionTitle from "../components/SectionTitle";
 import CustomDescription from "../components/CustomDescription";
 import { skills, timeline } from "./data";
 
+export const metadata = {
+  title: "Resume",
+  description: "Arjun Sethi's resume",
+};
+
 const Resume = () => {
   return (
     <>
