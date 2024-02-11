@@ -5,7 +5,7 @@ import AppWrapper from "./components/AppWrapper";
 export const metadata = {
   title: "Portfolio | Arjun Sethi",
   description:
-    "Software Engineer with a passion for transforming ideas into functional software.",
+    "Software Engineer with a passion for transforming ideas into functional software. My expertise spans both front-end and back-end development, and my projects demonstrate my commitment to creating robust and efficient systems. This portfolio is a testament to my continuous learning, adaptability, and ability to work effectively in diverse teams. Explore how I can help transform your software ideas into reality.",
 };
 
 export default function RootLayout({ children }) {
@@ -17,13 +17,10 @@ export default function RootLayout({ children }) {
 
         <meta
           name="keywords"
-          content="fishmeister, Arjun Sethi, full stack developer, software developer, software engineer"
+          content="fishmeister, Arjun Sethi, full stack developer, software developer, software engineer, fishmeister.me, fishmeister portfolio, fishmeister projects, fishmeister blog, fishmeister about, fishmeister contact, fishmeister resume, fishmeister portfolio, portfolio, projects, blog, about, contact, resume"
         />
         <meta property="og:title" content="Portfolio | Arjun Sethi" />
-        <meta
-          property="og:description"
-          content="Software Developer with a passion for transforming ideas into functional software."
-        />
+        <meta property="og:description" content={metadata.description} />
         <meta
           property="og:image"
           content="https://res.cloudinary.com/fishmeister/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1707516844/profile.jpg"
