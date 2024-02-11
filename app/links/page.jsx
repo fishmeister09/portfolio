@@ -6,7 +6,6 @@ import links from "./links.json";
 
 export const metadata = {
   title: "Links",
-  description: "Links to my socials and other stuff",
 };
 
 const Links = () => {

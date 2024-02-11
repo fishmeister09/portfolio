@@ -8,7 +8,6 @@ import quotesData from "./quotes.json";
 
 export const metadata = {
   title: "Miscellaneous",
-  description: "Just a bunch of random stuff",
 };
 
 const Miscellaneous = () => {

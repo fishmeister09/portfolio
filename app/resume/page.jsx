@@ -9,7 +9,6 @@ import { skills, timeline } from "./data";
 
 export const metadata = {
   title: "Resume",
-  description: "Arjun Sethi's resume",
 };
 
 const Resume = () => {
