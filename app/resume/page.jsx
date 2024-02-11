@@ -8,7 +8,7 @@ import CustomDescription from "../components/CustomDescription";
 import { skills, timeline } from "./data";
 
 export const metadata = {
-  title: "Resume",
+  title: "Resume | Arjun Sethi",
 };
 
 const Resume = () => {

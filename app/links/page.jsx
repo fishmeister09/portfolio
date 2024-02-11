@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import links from "./links.json";
 
 export const metadata = {
-  title: "Links",
+  title: "Links | Arjun Sethi",
 };
 
 const Links = () => {

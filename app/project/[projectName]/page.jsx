@@ -15,7 +15,7 @@ export const generateStaticParams = () => {
 export const generateMetadata = ({ params }) => {
   const name = params.projectName;
   return {
-    title: projectsData[name].title,
+    title: `${projectsData[name].title} | Arjun Sethi`,
   };
 };
 

@@ -7,7 +7,7 @@ import SectionHeader from "../components/SectionHeader";
 import quotesData from "./quotes.json";
 
 export const metadata = {
-  title: "Miscellaneous",
+  title: "Miscellaneous | Arjun Sethi",
 };
 
 const Miscellaneous = () => {
