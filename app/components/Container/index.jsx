@@ -3,23 +3,20 @@ import SectionTitle from "../SectionTitle";
 import Description from "../Description";
 import styles from "./Container.module.css";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 const Container = ({
   title,
   description,
   titleWidth,
   descriptionWidth,
   descriptionStyle,
-  navigateTo,
   customDescription,
   hoverEffect = true,
+  navigateTo = "",
 }) => {
-  const router = useRouter();
   return (
     <motion.div
-      onClick={() => router.push(navigateTo)}
-      className={styles.container}
+      // onClick={() => router.push(navigateTo)}
       style={{ cursor: hoverEffect ? "pointer" : "default" }}
       whileHover={
         hoverEffect && {
@@ -29,16 +26,18 @@ const Container = ({
         }
       }
     >
-      <div style={{ width: titleWidth }}>
-        <SectionTitle>{title}</SectionTitle>
-      </div>
-      <div style={{ width: descriptionWidth }}>
-        {customDescription ? (
-          customDescription
-        ) : (
-          <Description style={descriptionStyle}>{description}</Description>
-        )}
-      </div>
+      <Link href={navigateTo} className={styles.container}>
+        <div style={{ width: titleWidth }}>
+          <SectionTitle>{title}</SectionTitle>
+        </div>
+        <div style={{ width: descriptionWidth }}>
+          {customDescription ? (
+            customDescription
+          ) : (
+            <Description style={descriptionStyle}>{description}</Description>
+          )}
+        </div>
+      </Link>
     </motion.div>
   );
 };
