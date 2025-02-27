@@ -1,5 +1,5 @@
 import styles from "./IconContainer.module.css";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const IconMap = {
   bundle: "/bundle.png",
@@ -27,7 +27,7 @@ const IconContainer = ({ Icon, link }) => {
         src={IconMap[Icon]}
         alt={Icon}
         className={styles.icon}
-        loading="lazy"
+        loading="eager"
       />
     </div>
   );

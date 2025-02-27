@@ -42,7 +42,9 @@ export default function AppWrapper({ children }) {
       transition={{
         type: "spring",
         duration: 2,
-        bounce: 0.4,
+        stiffness: 100,
+        damping: 15,
+        mass: 1,
       }}
     >
       {/* top cuts */}

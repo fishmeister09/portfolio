@@ -1,8 +1,5 @@
-"use client";
-import { useMemo } from "react";
-
 const Triangle = ({ receiptDim, position }) => {
-  const parentWidth = useMemo(() => receiptDim.width, [receiptDim.width]);
+  const parentWidth = receiptDim.width;
   const height = 8;
   const width = height * 2;
 
