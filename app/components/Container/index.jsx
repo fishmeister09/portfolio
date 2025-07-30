@@ -1,9 +1,11 @@
-"use client";
-import SectionTitle from "../SectionTitle";
-import Description from "../Description";
-import styles from "./Container.module.css";
-import { motion } from "framer-motion";
-import Link from "next/link";
+'use client';
+import SectionTitle from '../SectionTitle';
+import Description from '../Description';
+import styles from './Container.module.css';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 const Container = ({
   title,
   description,
@@ -12,22 +14,32 @@ const Container = ({
   descriptionStyle,
   customDescription,
   hoverEffect = true,
-  navigateTo = "",
+  navigateTo = '',
 }) => {
+  const router = useRouter();
+
+  const handleMouseEnter = () => {
+    router.prefetch(navigateTo);
+  };
+
   return (
     <motion.div
       // onClick={() => router.push(navigateTo)}
-      style={{ cursor: hoverEffect ? "pointer" : "default" }}
       whileHover={
         hoverEffect && {
-          color: "#FFFFFF",
-          backgroundColor: "#242728",
+          color: '#FFFFFF',
+          backgroundColor: '#242728',
           transition: { duration: 0.5 },
         }
       }
     >
-      <Link href={navigateTo} className={styles.container}>
-        <div style={{ width: titleWidth }}>
+      <Link
+        href={navigateTo}
+        className={styles.container}
+        prefetch={false}
+        style={{ cursor: hoverEffect ? 'pointer' : 'default' }}
+      >
+        <div style={{ width: titleWidth }} onMouseEnter={handleMouseEnter}>
           <SectionTitle>{title}</SectionTitle>
         </div>
         <div style={{ width: descriptionWidth }}>
