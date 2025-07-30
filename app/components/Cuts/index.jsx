@@ -13,13 +13,13 @@ const Triangle = ({ receiptDim, position }) => {
   return (
     <div
       style={{
-        display: "flex",
-        alignItems: "flex-start",
+        display: 'flex',
+        alignItems: 'flex-start',
         width: parentWidth,
-        overflow: "hidden",
-        marginTop: position == "bottom" ? -height * 0.1 : 0,
-        marginBottom: position == "top" ? -height * 0.1 : 0,
-        rotate: position === "bottom" ? "180deg" : "0deg",
+        overflow: 'hidden',
+        marginTop: position == 'bottom' ? -height * 0.12 : 0,
+        marginBottom: position == 'top' ? -height * 0.13 : 0,
+        rotate: position === 'bottom' ? '180deg' : '0deg',
       }}
     >
       {Array.from({ length: numberOfTriangles }, (_, index) => (
