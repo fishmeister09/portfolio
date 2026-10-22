@@ -48,13 +48,10 @@
   margin-top: 4px;
 }
 
-/* A light tint rather than solid accent, so each project's coloured logo
-   stays visible (Sutra-cli's is blue itself). */
 .item:hover,
 .item:focus-visible {
-  color: var(--accent);
-  background-color: color-mix(in srgb, var(--accent) 9%, var(--paper));
-  box-shadow: inset 3px 0 0 var(--accent);
+  color: var(--paper);
+  background-color: var(--accent);
   outline: none;
 }
 
