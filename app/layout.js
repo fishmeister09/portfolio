@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Caprasimo, JetBrains_Mono } from "next/font/google";
 
 import AppWrapper from "./components/AppWrapper";
 
@@ -8,9 +9,22 @@ export const metadata = {
     "Software Engineer with a passion for transforming ideas into functional software. My expertise spans both front-end and back-end development, and my projects demonstrate my commitment to creating robust and efficient systems. This portfolio is a testament to my continuous learning, adaptability, and ability to work effectively in diverse teams. Explore how I can help transform your software ideas into reality.",
 };
 
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
+const display = Caprasimo({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+  display: "swap",
+});
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${mono.variable} ${display.variable}`}>
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />

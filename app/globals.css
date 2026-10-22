@@ -1,28 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=JetBrains+Mono:wght@400;500;700&display=swap');
 :root {
-  font-family: 'JetBrains Mono', monospace;
-  --background-light: #e5e5e5;
-  --background-dark: #242728;
+  font-family: var(--font-mono), monospace;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  --textColor: #242728;
+  /* The paper is sized from the printer so it always fits inside the slot,
+     with a little clearance either side. */
+  --printer-w: min(520px, calc(100vw - 24px));
+  --slot-inset: 24px;
+  --slot-clearance: 14px;
+  /* Distance from the printer's bottom edge up to the middle of its slot. */
+  --slot-drop: 60px;
+  --receipt-w: calc(
+    var(--printer-w) - 2 * (var(--slot-inset) + var(--slot-clearance))
+  );
+  --page: #f3f3f1;
+  --paper: #fdfcf9;
+  --ink: #1f2021;
+  --ink-muted: #6a6a6a;
+  --rule: #c9c9c6;
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --slot-inset: 16px;
+    --slot-clearance: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--page);
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--background-dark);
+  :root {
+    --page: #151515;
+    --paper: #ecebe6;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: var(--background-light);
-  }
+/* Thermal print: ink bleeds very slightly into the paper fibres. */
+[data-receipt] {
+  text-shadow: 0 0 0.6px rgba(20, 20, 20, 0.3);
 }
 
 ::selection {
-  background: #e5e5e5;
+  background: var(--ink);
+  color: var(--paper);
 }

@@ -1,7 +1,0 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: var(--text-color);
-  text-decoration: none;
-}

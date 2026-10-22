@@ -1,0 +1,86 @@
+.icon {
+  flex-shrink: 0;
+}
+
+.masthead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0 12px;
+  text-align: center;
+}
+
+.masthead .icon {
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display), serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 -6px;
+  padding: 8px 6px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.item + .item {
+  margin-top: 4px;
+}
+
+.item:hover,
+.item:focus-visible {
+  color: var(--paper);
+  background-color: var(--ink);
+  outline: none;
+}
+
+.itemText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.itemBody {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.item:hover .itemBody,
+.item:focus-visible .itemBody {
+  color: inherit;
+}
+
+.arrow {
+  flex-shrink: 0;
+  font-size: 14px;
+}
