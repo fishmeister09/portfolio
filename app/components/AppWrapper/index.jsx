@@ -282,16 +282,6 @@ export default function AppWrapper({ children }) {
 
             <div className={styles.end}>
               <Barcode value={`fishmeister${pathName === "/" ? "/home" : pathName}`} />
-              <a
-                href="/arjun-sethi-resume.pdf"
-                download
-                className={styles.qr}
-                aria-label="Scan for resume (download PDF)"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/qr-resume.svg" alt="" width={84} height={84} />
-                <span>Scan for resume</span>
-              </a>
               <p className={styles.thanks}>*** Thank you for visiting ***</p>
             </div>
           </div>
