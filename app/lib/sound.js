@@ -45,18 +45,38 @@ export const setSound = (on) => {
   try {
     localStorage.setItem(KEY, on ? "on" : "off");
   } catch {}
-  if (on) audio();
   listeners.forEach((fn) => fn(on));
+  // Play a short sample straight away so turning it on is audible.
+  if (on) {
+    audio();
+    playFeed([[0, 0.12], [0.2, 0.32]]);
+  }
 };
+
+// Browsers keep audio locked until the visitor interacts with the page, so a
+// remembered "on" can't play during the first print. Unlock on the first
+// interaction so the next print and tear are heard.
+if (typeof window !== "undefined") {
+  const unlock = () => {
+    if (enabled) audio();
+    ["pointerdown", "keydown", "touchstart"].forEach((type) =>
+      window.removeEventListener(type, unlock, true)
+    );
+  };
+  ["pointerdown", "keydown", "touchstart"].forEach((type) =>
+    window.addEventListener(type, unlock, true)
+  );
+}
 
 // A thermal printer's stepper motor: a buzzy whirr for each burst of feed.
 // `bursts` are [start, end] pairs in seconds. Returns a function that stops it.
 export const playFeed = (bursts) => {
   if (!enabled) return () => {};
   const ac = audio();
+  if (ac.state !== "running") return () => {};
   const now = ac.currentTime + 0.02;
   const out = ac.createGain();
-  out.gain.value = 0.18;
+  out.gain.value = 0.3;
   out.connect(ac.destination);
 
   const hiss = noise(ac);
@@ -68,7 +88,7 @@ export const playFeed = (bursts) => {
   motor.type = "square";
   motor.frequency.value = 180;
   const motorGain = ac.createGain();
-  motorGain.gain.value = 0.25;
+  motorGain.gain.value = 0.35;
 
   const env = ac.createGain();
   env.gain.value = 0;
@@ -111,7 +131,7 @@ export const playTear = () => {
   // Uneven grains, like fibres giving way one after another.
   let t = now;
   while (t < now + 0.22) {
-    env.gain.setValueAtTime(0.05 + Math.random() * 0.35, t);
+    env.gain.setValueAtTime(0.1 + Math.random() * 0.5, t);
     t += 0.008 + Math.random() * 0.012;
   }
   env.gain.setTargetAtTime(0, t, 0.02);
