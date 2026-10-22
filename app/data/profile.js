@@ -65,7 +65,6 @@ const contact = [
   { label: "Mail", value: "arjunsethi33@gmail.com", href: "mailto:arjunsethi33@gmail.com" },
   { label: "GitHub", value: "@fishmeister09", href: "https://github.com/fishmeister09" },
   { label: "LinkedIn", value: "@arjunsethi33", href: "https://www.linkedin.com/in/arjunsethi33/" },
-  { label: "Twitter", value: "@arjun_sethi33", href: "https://twitter.com/arjun_sethi33" },
 ];
 
 const quote = {
