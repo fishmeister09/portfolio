@@ -1,10 +1,40 @@
 {
+  "sutracli": {
+    "title": "Sutra-cli",
+    "accent": "#1f2021",
+    "date": "",
+    "miniDescription": "CLI for AI agent orchestration, automating multi-project code evolution.",
+    "subtitle": "Open-source AI agent orchestration",
+    "description": "A command-line tool for AI agent orchestration, automating multi-project code evolution via LLM-powered planning and sub-agent execution.",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/fishmeister09/sutracli"
+      }
+    ],
+    "list": []
+  },
   "bundle": {
     "title": "Bundle",
-    "miniDescription": "Unleash your creativity and share engaging stories.",
-    "demolink": "https://photos.app.goo.gl/wcRoGmgfJPfD6Fev6",
+    "accent": "#b5651d",
+    "date": "08/2023",
+    "miniDescription": "Cross-platform mobile blogging app with a custom text editor.",
     "subtitle": "Seamlessly Craft, Share, Engage",
-    "description": "Bundle is the blogging app you've been waiting for - a Medium-inspired platform designed to offer a user-friendly experience with enhanced gestures for efficient content management. The app is carefully designed to offer a modern and aesthetic interface that enhances the overall user experience.",
+    "description": "A cross-platform mobile blogging application for creating and managing content with a custom text editor, designed around an intuitive interface with smooth animations and gesture-based interactions. Built with React Native and Firebase.",
+    "links": [
+      {
+        "label": "Project video",
+        "href": "https://photos.app.goo.gl/wcRoGmgfJPfD6Fev6"
+      },
+      {
+        "label": "Screenshots",
+        "href": "https://drive.google.com/drive/folders/1W9zlHkrlQxfHQ2d3U79XqxiIzcvRrryn?usp=share_link"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/fishmeister09/Bundle"
+      }
+    ],
     "list": [
       {
         "title": "Social Media Integration",
@@ -20,12 +50,38 @@
       }
     ]
   },
+  "chatapp": {
+    "title": "ChatApp",
+    "accent": "#a8327f",
+    "date": "10/2023",
+    "miniDescription": "Real-time messaging with rich text formatting and file sharing.",
+    "subtitle": "Real-time messaging",
+    "description": "A real-time messaging application with instant communication, rich text formatting, and file sharing, backed by a Socket.IO server.",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/fishmeister09/chat-app-server"
+      }
+    ],
+    "list": []
+  },
   "transcribe": {
     "title": "Transcribe",
-    "demolink": "https://photos.app.goo.gl/awaiKULaUEPF97ez5",
+    "accent": "#4f7f2a",
+    "date": "",
     "miniDescription": "Your gateway to an enriched language experience that empowers you to communicate with accuracy and flair.",
     "subtitle": "Unlock Language with Precision",
     "description": "In a world that thrives on global connections and cross-cultural interactions, the power of language cannot be underestimated. Communication is the bridge that brings people together, and words are the building blocks of that connection. This is where \"Transcribe\" steps in, serving as your indispensable companion on the journey of language exploration and mastery.",
+    "links": [
+      {
+        "label": "Project video",
+        "href": "https://photos.app.goo.gl/awaiKULaUEPF97ez5"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/fishmeister09/Transcribe"
+      }
+    ],
     "list": [
       {
         "title": "Extensive Word Repository",

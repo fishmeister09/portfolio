@@ -1,0 +1,168 @@
+.section {
+  border-top: 1px dashed var(--rule);
+  padding: 16px 0;
+  scroll-margin-top: 24px;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.interactive {
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.interactive:hover,
+.interactive:focus-visible {
+  color: var(--paper);
+  background-color: var(--accent);
+  outline: none;
+}
+
+.interactive:hover *,
+.interactive:focus-visible * {
+  color: inherit;
+}
+
+.row,
+.item {
+  display: block;
+  margin: 0 -6px;
+  padding: 3px 6px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  width: calc(100% + 12px);
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.label {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.value {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.item + .item {
+  margin-top: 6px;
+}
+
+.entry + .entry {
+  margin-top: 18px;
+}
+
+.entry a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.itemHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.meta {
+  flex-shrink: 0;
+  font-weight: 400;
+}
+
+.itemBody,
+.text {
+  display: block;
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+.text {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.quote {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+.author {
+  display: block;
+  margin-top: 6px;
+  text-align: right;
+  font-family: var(--font-display), serif;
+  font-size: 14px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.callout {
+  margin-bottom: 12px;
+  margin: 8px 0;
+  padding: 3px 0;
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+
+.calloutLink {
+  display: block;
+  padding: 12px 6px;
+  color: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.calloutLink:hover,
+.calloutLink:focus-visible {
+  color: var(--paper);
+  background-color: var(--accent);
+  outline: none;
+}

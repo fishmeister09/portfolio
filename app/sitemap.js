@@ -1,34 +1,11 @@
-const baseUrl = "https://fishmeister.me";
+const baseUrl = "https://fishmeister09.netlify.app";
 import projectsData from "./project/projects-data.json";
 
 export default function sitemap() {
-  const projectNames = Object.keys(projectsData);
-  const projectPaths = projectNames.map((name) => ({
+  const projectPaths = Object.keys(projectsData).map((name) => ({
     url: `${baseUrl}/project/${name}`,
     lastModified: new Date(),
   }));
 
-  return [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/links`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/resume`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/miscellaneous`,
-      lastModified: new Date(),
-    },
-    ...projectPaths,
-  ];
+  return [{ url: `${baseUrl}/`, lastModified: new Date() }, ...projectPaths];
 }

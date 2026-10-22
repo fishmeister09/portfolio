@@ -1,0 +1,78 @@
+.portrait {
+  margin: 0 auto;
+  width: min(100%, 360px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+.fallback,
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Shown on the server, without WebGL2, or before the engraving is ready. */
+.fallback {
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.15);
+  mix-blend-mode: multiply;
+  transition: opacity 300ms ease-out;
+}
+
+.canvas {
+  display: block;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+.frame[data-ready] .canvas {
+  opacity: 1;
+}
+
+.frame[data-ready] .fallback {
+  opacity: 0;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.note {
+  color: var(--ink-muted);
+  letter-spacing: -0.01em;
+}
+
+/* A project's app icon, engraved as a square tile. */
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.logo .frame {
+  aspect-ratio: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fallback,
+  .canvas {
+    transition: none;
+  }
+}

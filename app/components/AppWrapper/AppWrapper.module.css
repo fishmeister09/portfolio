@@ -1,39 +1,250 @@
-.mainContainer {
+.stage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem;
-  color: var(--textColor);
-}
-.receipt {
-  width: 560px;
-  min-height: 200px;
-  background-color: rgb(255, 255, 255);
+  padding: 3rem 0 6rem;
+  color: var(--ink);
 }
 
-.subContainer {
+/* Like the reference: the paper sits in front of the printer, overlapping its
+   lower lip, and is clipped at the slot so it appears to come out of it. */
+.feed {
+  position: relative;
+  z-index: 3;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 3rem 1.5rem;
-}
-
-.pageContainer {
   width: 100%;
-  margin: 1.5rem 0;
-  overflow: hidden;
+  margin-top: calc(-1 * var(--slot-drop));
+  clip-path: inset(0 -200px -300px -200px);
 }
 
-.removePageContainerMargin {
-  margin: 0;
+/* Static shading where the paper leaves the slot; the paper slides out from
+   underneath it. */
+.slotShadow {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  z-index: 2;
+  width: var(--receipt-w);
+  height: 8px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  filter: blur(6px);
+  pointer-events: none;
 }
 
-@media screen and (max-width: 810px) {
-  .receipt {
-    width: 360px;
+.receipt {
+  --curl: 5;
+  --strip-h: 9px;
+  --tooth: 16px;
+  --tooth-h: 8px;
+  position: relative;
+  width: var(--receipt-w);
+  isolation: isolate;
+}
+
+/* No-JS / slow-JS safety: if GSAP hasn't taken over, show it anyway. */
+.receipt[data-printing='true'] {
+  transform: translateY(-100%);
+  animation: reveal 0s 1.5s forwards;
+}
+
+@keyframes reveal {
+  to {
+    transform: none;
   }
-  .subContainer {
-    padding: 2.5rem 1rem;
+}
+
+/* Contact shadow of the flat part of the paper. */
+.receipt::before {
+  content: '';
+  position: absolute;
+  inset: 8px 6px 60px;
+  z-index: -1;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+/* Shadow cast on the desk by the lifted, curled end. */
+.receipt::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 4px;
+  z-index: -1;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  filter: blur(10px);
+  opacity: calc(var(--curl) / 5 * 0.4);
+  transform: translateY(calc(var(--curl) * 1px));
+}
+
+.paper,
+.strip {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.035),
+      transparent 6%,
+      transparent 94%,
+      rgba(0, 0, 0, 0.045)
+    ),
+    var(--paper-grain);
+  background-size: 100% 100%, 180px 180px;
+}
+
+.paper {
+  padding: 28px 24px 8px;
+}
+
+.header {
+  padding-bottom: 18px;
+  text-align: center;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display), serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.role {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+/* Section links, printed like a receipt's department line. */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 0;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  /* Tall enough to tap comfortably on a phone. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 6px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.nav span {
+  padding: 2px 4px;
+  color: var(--ink-muted);
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--paper);
+  background-color: var(--accent);
+  outline: none;
+}
+
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0 8px;
+  border-top: 1px dashed var(--rule);
+}
+
+.thanks {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---- The curl ---- */
+
+.curl {
+  position: relative;
+  height: calc(var(--strip-h) * 10);
+  perspective: 1100px;
+  perspective-origin: 50% -120px;
+  transform-style: preserve-3d;
+}
+
+.strip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: var(--strip-h);
+  transform-origin: 50% 0;
+  transform: rotateX(calc(var(--curl) * var(--bend) * 1deg));
+  transform-style: preserve-3d;
+  /* Overlap by a hair so no seams show between strips. */
+  margin-top: -0.5px;
+}
+
+/* Shading fades in with the curl so flat paper stays clean. */
+.strip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(var(--tone-from), var(--tone-to));
+  opacity: calc(var(--curl) / 5);
+  pointer-events: none;
+}
+
+.curl > .strip {
+  top: 0;
+  margin-top: 0;
+}
+
+/* The torn end of the roll. */
+.tear {
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--tooth) var(--tooth-h) round no-repeat,
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth-h) + 1px)
+      no-repeat;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--tooth) var(--tooth-h) round no-repeat,
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth-h) + 1px)
+      no-repeat;
+}
+
+@media screen and (max-width: 480px) {
+  .stage {
+    padding-top: 1.5rem;
+  }
+  .paper {
+    padding: 24px 16px 8px;
+  }
+  .name {
+    font-size: 28px;
   }
 }
