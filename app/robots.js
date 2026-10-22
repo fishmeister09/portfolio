@@ -6,6 +6,6 @@ export default function robots() {
         allow: "/",
       },
     ],
-    sitemap: "https://fishmeister.me/sitemap.xml",
+    sitemap: "https://fishmeister09.netlify.app/sitemap.xml",
   };
 }

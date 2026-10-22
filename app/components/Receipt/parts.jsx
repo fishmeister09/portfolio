@@ -4,6 +4,12 @@ import styles from "./parts.module.css";
 // Internal routes use next/link; everything else opens like a normal link.
 const Target = ({ href, className, children }) => {
   if (!href) return <div className={className}>{children}</div>;
+  if (href.endsWith(".pdf"))
+    return (
+      <a href={href} download className={`${className} ${styles.interactive}`}>
+        {children}
+      </a>
+    );
   if (href.startsWith("/"))
     return (
       <Link href={href} className={`${className} ${styles.interactive}`}>
@@ -35,6 +41,19 @@ export const Row = ({ label, value, href }) => (
     <span className={styles.label}>{label}</span>
     <span className={styles.value}>{value}</span>
   </Target>
+);
+
+// A row that toggles a setting instead of linking somewhere.
+export const ToggleRow = ({ label, on, onToggle }) => (
+  <button
+    type="button"
+    aria-pressed={on}
+    onClick={onToggle}
+    className={`${styles.row} ${styles.interactive} ${styles.button}`}
+  >
+    <span className={styles.label}>{label}</span>
+    <span className={styles.value}>{on ? "On" : "Off"}</span>
+  </button>
 );
 
 export const Item = ({ label, meta, href, children }) => (

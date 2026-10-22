@@ -51,7 +51,7 @@
 .item:hover,
 .item:focus-visible {
   color: var(--paper);
-  background-color: var(--ink);
+  background-color: var(--accent);
   outline: none;
 }
 

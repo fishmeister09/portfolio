@@ -77,6 +77,7 @@ export default function Home() {
         <Callout href={`mailto:${profile.email}`}>
           Let&#39;s build something together
         </Callout>
+        <Row label="Resume" value="Download PDF ↓" href="/arjun-sethi-resume.pdf" />
         {contact.map((link) => (
           <Row key={link.label} label={link.label} value={link.value} href={link.href} />
         ))}

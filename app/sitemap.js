@@ -1,4 +1,4 @@
-const baseUrl = "https://fishmeister.me";
+const baseUrl = "https://fishmeister09.netlify.app";
 import projectsData from "./project/projects-data.json";
 
 export default function sitemap() {

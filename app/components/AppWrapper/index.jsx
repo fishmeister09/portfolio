@@ -1,15 +1,22 @@
 "use client";
 import styles from "./AppWrapper.module.css";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import Printer from "../Printer";
 import Barcode from "../Barcode";
-import { Quote, Row, Section } from "../Receipt/parts";
+import { Quote, Row, Section, ToggleRow } from "../Receipt/parts";
 import { profile, quote } from "../../data/profile";
 import projectsData from "../../project/projects-data.json";
+import {
+  isSoundOn,
+  playFeed,
+  playTear,
+  setSound,
+  subscribeSound,
+} from "../../lib/sound";
 
 gsap.registerPlugin(useGSAP);
 
@@ -26,6 +33,13 @@ const SHADE = [0, 0.015, 0.03, 0.045, 0.05, 0.04, 0.01, -0.03, -0.04, 0, 0.05];
 const FEED_DURATION = 1.75;
 const FEED_PERCENT = [-91, -91, -81, -81, -70, -70, -58, -58, -45, -45, -32, -32, -20, -20, -10, -10, -3, -3, 0];
 const FEED_TIMES = [0, 0.075, 0.105, 0.18, 0.21, 0.285, 0.315, 0.39, 0.42, 0.495, 0.525, 0.6, 0.63, 0.705, 0.735, 0.81, 0.84, 0.915, 0.945, 1];
+
+const FEED_BURSTS = FEED_PERCENT.flatMap((percent, i) => {
+  const from = i === 0 ? -100 : FEED_PERCENT[i - 1];
+  return percent === from
+    ? []
+    : [[FEED_TIMES[i] * FEED_DURATION, FEED_TIMES[i + 1] * FEED_DURATION]];
+});
 
 const tone = (shade) =>
   shade >= 0
@@ -92,8 +106,47 @@ const formatDate = (date) =>
 export default function AppWrapper({ children }) {
   const stageRef = useRef(null);
   const pathName = usePathname();
+  const router = useRouter();
   const [printing, setPrinting] = useState(true);
   const [printedAt, setPrintedAt] = useState("");
+  const [sound, setSoundState] = useState(false);
+
+  useEffect(() => {
+    setSoundState(isSoundOn());
+    return subscribeSound(setSoundState);
+  }, []);
+
+  // Leaving for another page tears this receipt off at the slot, then the
+  // printer prints the next one.
+  useEffect(() => {
+    const stage = stageRef.current;
+    const onClick = (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link || event.defaultPrevented || event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.target === "_blank" || link.hasAttribute("download")) return;
+      const url = new URL(link.href);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      // Stop Next's <Link> from navigating before the tear plays.
+      event.preventDefault();
+      event.stopPropagation();
+      playTear();
+      const receipt = stage.querySelector("[data-receipt]");
+      gsap.to(receipt, {
+        y: "+=80",
+        rotation: -2,
+        opacity: 0,
+        duration: 0.45,
+        ease: "power2.in",
+        onComplete: () => router.push(url.pathname + url.hash),
+      });
+    };
+    stage.addEventListener("click", onClick, true);
+    return () => stage.removeEventListener("click", onClick, true);
+  }, [router]);
 
   useEffect(() => {
     // Every load prints from the top, so the browser restoring the old scroll
@@ -120,7 +173,12 @@ export default function AppWrapper({ children }) {
           reduce: "(prefers-reduced-motion: reduce)",
         },
         ({ conditions }) => {
-          if (conditions.reduce) {
+          gsap.set(receipt, { opacity: 1, rotation: 0 });
+          // Arriving at a section link (/#contact): show the finished receipt
+          // rather than printing it out of view.
+          const landedOnSection =
+            window.location.hash && document.querySelector(window.location.hash);
+          if (conditions.reduce || landedOnSection) {
             gsap.set(receipt, { y: 0, "--curl": CURL_DEGREES });
             setPrinting(false);
             return;
@@ -131,6 +189,7 @@ export default function AppWrapper({ children }) {
           const travel = Math.min(receipt.offsetHeight, window.innerHeight * 1.2);
 
           setPrinting(true);
+          const stopSound = playFeed(FEED_BURSTS);
           const tl = gsap
             .timeline({ onComplete: () => setPrinting(false) })
             .set(receipt, { y: 2 - travel, "--curl": 0 });
@@ -160,6 +219,7 @@ export default function AppWrapper({ children }) {
             stop();
           };
           const stop = () => {
+            stopSound();
             window.removeEventListener("wheel", finish);
             window.removeEventListener("touchmove", finish);
             window.removeEventListener("keydown", finish);
@@ -216,11 +276,22 @@ export default function AppWrapper({ children }) {
             <Section>
               <Row label="Date" value={printedAt || "—"} />
               <Row label="Page" value={pathName} />
+              <ToggleRow label="Printer sound" on={sound} onToggle={() => setSound(!sound)} />
               <Row label="Back to top" value="↑" href="#top" />
             </Section>
 
             <div className={styles.end}>
               <Barcode value={`fishmeister${pathName === "/" ? "/home" : pathName}`} />
+              <a
+                href="/arjun-sethi-resume.pdf"
+                download
+                className={styles.qr}
+                aria-label="Scan for resume (download PDF)"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/qr-resume.svg" alt="" width={84} height={84} />
+                <span>Scan for resume</span>
+              </a>
               <p className={styles.thanks}>*** Thank you for visiting ***</p>
             </div>
           </div>

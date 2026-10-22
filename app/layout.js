@@ -35,9 +35,19 @@ export default function RootLayout({ children }) {
         />
         <meta property="og:title" content="Portfolio | Arjun Sethi" />
         <meta property="og:description" content={metadata.description} />
+        <meta property="og:url" content="https://fishmeister09.netlify.app/" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/fishmeister/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1707516844/profile.jpg"
+          content="https://fishmeister09.netlify.app/og.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio | Arjun Sethi" />
+        <meta
+          name="twitter:image"
+          content="https://fishmeister09.netlify.app/og.jpg"
         />
 
         {/* <!-- for light mode --> */}

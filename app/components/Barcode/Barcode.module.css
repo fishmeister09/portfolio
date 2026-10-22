@@ -6,6 +6,7 @@
 }
 
 .bars {
+  color: var(--accent);
   width: 70%;
   height: 56px;
   opacity: 0.92;
