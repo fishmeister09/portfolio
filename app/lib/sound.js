@@ -1,15 +1,15 @@
 // Printer sounds, synthesised with Web Audio so there is nothing to download.
-// Off by default; the visitor's choice is remembered on this device.
+// On by default; turning it off is remembered on this device.
 
 const KEY = "receipt-sound";
 const listeners = new Set();
 let ctx = null;
-let enabled = false;
+let enabled = true;
 
 try {
-  enabled = typeof window !== "undefined" && localStorage.getItem(KEY) === "on";
+  enabled = typeof window === "undefined" || localStorage.getItem(KEY) !== "off";
 } catch {
-  enabled = false;
+  enabled = true;
 }
 
 const audio = () => {

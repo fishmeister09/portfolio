@@ -109,7 +109,7 @@ export default function AppWrapper({ children }) {
   const router = useRouter();
   const [printing, setPrinting] = useState(true);
   const [printedAt, setPrintedAt] = useState("");
-  const [sound, setSoundState] = useState(false);
+  const [sound, setSoundState] = useState(true);
 
   useEffect(() => {
     setSoundState(isSoundOn());
